@@ -26,8 +26,14 @@ function retornaBio_pelo_ID(idInput) {
         console.log(elemento);
         return elemento;
     }
+    //Se não houver elemento para retornar
+    else {
+        //Imprime mensagem no console e retorna nulo
+        console.log("Não há elemento para retornar");
+        return null;
+    }
 }
-//returnBio_by_ID(3);
+//retornaBio_pelo_ID(2);
 //Retorna o nome a partir do ID passado no 'idInput'
 function retornaNome_pelo_ID(idInput) {
     //Exatamente a mesma coisa que a anterior, mas dessa vez checando o parametro name
@@ -42,8 +48,12 @@ function retornaNome_pelo_ID(idInput) {
         console.log(elemento);
         return elemento;
     }
+    else {
+        console.log("Não há elemento para retornar");
+        return null;
+    }
 }
-//retornaNome_pelo_ID(0);
+//retornaNome_pelo_ID(1);
 //Deleta um elemento da lista com base no ID passado na 'idInput'
 function deletaElemento_pelo_ID(idInput) {
     //Cria a variavel que vai armazenar o elemento removido (não é necessário, só um extra)
@@ -97,7 +107,7 @@ function renomeiaBioOuNome_pelo_ID(idInput, renameItem, newName) {
         }
     }
 }
-//renomeiaBioOuNome_pelo_ID(0, 1, "Testando");
+//renomeiaBioOuNome_pelo_ID(1, 1, "Testando");
 // PARADIGMA FUNCIONAL
 // PARADIGMA FUNCIONAL
 // PARADIGMA FUNCIONAL
@@ -107,16 +117,16 @@ function retornaBio_pelo_ID_Funcional(idInput) {
     const elemento = lista.find(x => x.id === idInput);
     //Imprime na tela e retorna a bio do elemento
     console.log(elemento.bio);
-    return elemento;
+    return elemento.bio;
 }
 //retornaBio_pelo_ID_Funcional(1);
 function retornaNome_pelo_ID_Funcional(idInput) {
     //Mesmo esquema da anterior, mas retorna o name
     const elemento = lista.find(x => x.id === idInput);
     console.log(elemento.name);
-    return elemento;
+    return elemento.name;
 }
-//retornaNome_pelo_ID_Funcional(1);
+retornaNome_pelo_ID_Funcional(1);
 function deletaElemento_pelo_ID_Funcional(idInput) {
     //Usando o .findIndex para retornar o primeiro parametro no qual o ID seja igual o idInput
     const index = lista.findIndex(element => element.id == idInput);

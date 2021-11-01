@@ -1,5 +1,12 @@
+interface Person
+{
+    id : number;
+    name : string;
+    bio : string;
+}
+
 //Cria a lista pedida
-let lista = 
+let lista : Array<Person> =
 [
     {id : 1, name: "Ada Lovelace", bio : "Ada Lovelace, foi uma matemática e escritora inglesa reconhecida por ter escrito o primeiro algoritmo para ser processado por uma máquina"},
     {id : 2, name: "Alan Turing", bio : "Alan Turing foi um matemático, cientista da computação, lógico, criptoanalista, filósofo e biólogo teórico britânico, ele é amplamente considerado o pai da ciência da computação teórica e da inteligência artificia"},
@@ -12,7 +19,7 @@ let lista =
 // PARADIGMA IMPERATIVO
 
 //Retorna a Bio a partir do ID passado no 'idInput'
-function retornaBio_pelo_ID(idInput : number)
+function retornaBio_pelo_ID(idInput : number) : string
 {
     //Variavel para armazenar o elemento
     let elemento;
@@ -35,12 +42,20 @@ function retornaBio_pelo_ID(idInput : number)
         console.log(elemento);
         return elemento;
     }
+
+    //Se não houver elemento para retornar
+    else
+    {
+        //Imprime mensagem no console e retorna nulo
+        console.log("Não há elemento para retornar");
+        return null;
+    }
 }
 
-//returnBio_by_ID(3);
+//retornaBio_pelo_ID(2);
 
 //Retorna o nome a partir do ID passado no 'idInput'
-function retornaNome_pelo_ID(idInput : number)
+function retornaNome_pelo_ID(idInput : number) : string
 {
     //Exatamente a mesma coisa que a anterior, mas dessa vez checando o parametro name
     let elemento;
@@ -59,12 +74,17 @@ function retornaNome_pelo_ID(idInput : number)
         console.log(elemento);
         return elemento;
     }
+    else
+    {
+        console.log("Não há elemento para retornar");
+        return null;
+    }
 }
 
-//retornaNome_pelo_ID(0);
+//retornaNome_pelo_ID(1);
 
 //Deleta um elemento da lista com base no ID passado na 'idInput'
-function deletaElemento_pelo_ID(idInput : number)
+function deletaElemento_pelo_ID(idInput : number) : Person[]
 {
     //Cria a variavel que vai armazenar o elemento removido (não é necessário, só um extra)
     let elementoRemovido;
@@ -138,13 +158,13 @@ function renomeiaBioOuNome_pelo_ID(idInput : number, renameItem : number, newNam
     }
 }
 
-//renomeiaBioOuNome_pelo_ID(0, 1, "Testando");
+//renomeiaBioOuNome_pelo_ID(1, 1, "Testando");
 
 // PARADIGMA FUNCIONAL
 // PARADIGMA FUNCIONAL
 // PARADIGMA FUNCIONAL
 
-function retornaBio_pelo_ID_Funcional(idInput : number)
+function retornaBio_pelo_ID_Funcional(idInput : number) : string
 {
     //Usa um .find para procurar nos elementos e retornar o que tiver o id igual ao que foi passado no 'idInput'
     //O valor retornado é armazenado na variavel elemento
@@ -152,21 +172,21 @@ function retornaBio_pelo_ID_Funcional(idInput : number)
 
     //Imprime na tela e retorna a bio do elemento
     console.log(elemento.bio);
-    return elemento;
+    return elemento.bio;
 }
 
 //retornaBio_pelo_ID_Funcional(1);
 
-function retornaNome_pelo_ID_Funcional(idInput : number)
+function retornaNome_pelo_ID_Funcional(idInput : number) : string
 {
     //Mesmo esquema da anterior, mas retorna o name
     const elemento = lista.find(x => x.id === idInput);
 
     console.log(elemento.name);
-    return elemento;
+    return elemento.name;
 }
 
-//retornaNome_pelo_ID_Funcional(1);
+retornaNome_pelo_ID_Funcional(1);
 
 function deletaElemento_pelo_ID_Funcional(idInput : number)
 {
